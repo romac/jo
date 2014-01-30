@@ -1,0 +1,23 @@
+{
+  "name": "chronic",
+  "version": "0.0.1",
+  "description": "A port to JavaScript of ClojureScript's core.async",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/romac/chronic"
+  },
+  "keywords": [],
+  "author": "Romain Ruetschi (romain.ruetschi@gmail.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp-util": "~2.2.13",
+    "gulp": "~3.5.0",
+    "gulp-browserify": "~0.4.0",
+    "gulp-concat": "~2.1.7"
+  },
+  "dependencies": {
+    "functional-red-black-tree": "0.0.0"
+  }
+}
