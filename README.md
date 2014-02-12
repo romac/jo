@@ -40,7 +40,7 @@ See [chronic-buffers](romac/chronic-buffers) for an overview of the available bu
 Creates an unbuffered channel.
 
 #### `go(gen*) :: Function* -> Channel`
-Spawn the given generator, and returns a channel that receives `true` once the coroutine is done.
+Spawn the given generator, and returns a channel that receives the value returned by the coroutine.
 
 #### `yield take(chan) :: Channel -> Unit`
 Blocks until a value is available on the given channel, and returns it.
