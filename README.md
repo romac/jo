@@ -6,26 +6,36 @@
 ### Usage
 
 ```js
-var cro = require('chronic');
+var chro = require('chronic'),
+    go = chro.go,
+    take = chro.take,
+    put = chro.put,
+    chan = chro.chan;
 
 var c = chan(1);
 
-function ping(name) {
-  return function*() {
-    var i = 0;
-    while (i < 1000) {
-      i = yield take(c);
-      console.log('%s got "%s".', name, i);
-      yield put(c, i + 1);
-    }
+go(function*() {
+  var i = 0;
+  while (true) {
+    i = yield take(c);
+    console.log('ping got "%s".', i);
+    yield put(c, i + 1);
   }
-}
+});
 
-go(ping('##'));
-go(ping('--'));
+go(function*() {
+  var i = 0;
+  while (true) {
+    i = yield take(c);
+    console.log('pong got "%s".', i);
+    yield put(c, i + 1);
+  }
+});
 
 c.put(1);
 ```
+
+Note: We must use `Channel#put(value)` in the last line because we are not inside a `go` block. This operation is thus executed asynchronously.
 
 ### API
 
@@ -56,6 +66,85 @@ Call `fn` with the supplied arguments `args`, and returns an array holding the e
 
 #### `timeout(ms) :: Int -> Channel`
 Creates a channel that will close after `ms` milliseconds.
+
+### Macros
+
+A few SweetJS macros are bundled that will make your code more readable and concise, if choose you to use them.
+
+Here's the example above, rewritten using macros:
+
+```js
+var chro = require('chronic'),
+    go = chro.go,
+    take = chro.take,
+    put = chro.put,
+    chan = chro.chan;
+
+var c = chan(1);
+
+go {
+  var i = 0;
+  while (true) {
+    i &lt;! c;
+    console.log('ping got "%s".', i);
+    i + 1 !&gt; c;
+  }
+};
+
+c.put(1);
+```
+
+We still need to import chronic and setup the aliases (for now), but the code is now much more consise, while fully hiding the underlying generators.
+
+Here's another example:
+
+```js
+var chro = require('chronic'),
+    go = chro.go,
+    defer = chro.defer;
+
+function doStuff(foo, bar, cb) {
+  setTimeout(function() {
+    cb(null, {foo: foo, bar: bar});
+  }, 200);
+}
+
+go {
+  defer doStuff('toto', 1224);
+};
+```
+
+This code will expand to:
+
+```js
+var chro = require('chronic'),
+    go = chro.go,
+    defer = chro.defer;
+
+function doStuff(foo, bar, cb) {
+  setTimeout(function() {
+    cb(null, {foo: foo, bar: bar});
+  }, 200);
+}
+
+go {
+  console.log('will do stuff');
+  
+  var res = defer doStuff('toto', 1234);
+  
+  console.log('foo is %s, bar is %s', res[1].foo, res[1].bar);
+}
+
+go(function*() {
+  console.log('will do stuff');
+  
+  var res = yield defer(doStuff, 'toto', 1224));
+  
+  console.log('foo is %s, bar is %s', res[1].foo, res[1].bar);
+});
+```
+
+See how the `defer` macro spliced `doStuff()`'s arguments into `defer()` itself? Neat, right?
 
 ### License
 
