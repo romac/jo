@@ -58,14 +58,6 @@ function doStuff(foo, bar, cb) {
   }, 200);
 }
 
-go {
-  console.log('will do stuff');
-  
-  var res = defer doStuff('toto', 1234);
-  
-  console.log('foo is %s, bar is %s', res[1].foo, res[1].bar);
-}
-
 go(function*() {
   console.log('will do stuff');
   
