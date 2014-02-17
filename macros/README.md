@@ -1,6 +1,6 @@
 ### Macros
 
-A few SweetJS macros are bundled that will make your code more readable and concise, if choose you to use them.
+A few [sweet.js](http://sweetjs.org/) macros are bundled that will make your code more readable and concise, if choose you to use them.
 
 Here's the example above, rewritten using macros:
 

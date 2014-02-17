@@ -68,7 +68,7 @@ Call `fn` with the supplied arguments `args`, and returns an array holding the e
 Creates a channel that will close after `ms` milliseconds.
 
 ### Macros
-A few SweetJS macros are bundled with jo. You can find a README, and some examples in the `macros/` folder.
+A few [sweet.js](http://sweetjs.org/) macros are bundled with jo. You can find a README, and some examples in the `macros/` folder.
 
 ### License
 
