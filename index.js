@@ -13,5 +13,6 @@ module.exports = {
   wait: coro.wait,
   await: coro.await,
   select: coro.select,
-  timeout: timers.timeout
+  timeout: timers.timeout,
+  after: timers.after
 };
