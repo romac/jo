@@ -33,6 +33,12 @@ let wait = macro {
   }
 }
 
+let after = macro {
+  rule { $ms:expr : $value:expr } => {
+    yield after($ms, $value)
+  }
+}
+
 let await = macro {
   rule { $fn ($args (,) ...) } => {
     yield await($fn, $args (,) ...)
