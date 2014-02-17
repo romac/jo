@@ -16,9 +16,9 @@ var c = chan(1);
 go {
   var i = 0;
   while (true) {
-    i &lt;! c;
+    i <- c;
     console.log('ping got "%s".', i);
-    i + 1 !&gt; c;
+    i + 1 -> c;
   }
 };
 

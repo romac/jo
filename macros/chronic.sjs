@@ -6,7 +6,7 @@ let go = macro {
   }
 }
 
-macro <! {
+macro <- {
    rule infix { var $lhs:ident | $rhs:expr } => {
      var $lhs = yield take($rhs)
    }
@@ -15,7 +15,7 @@ macro <! {
    }
 }
 
-macro !> {
+macro -> {
    rule infix { $lhs:expr | $rhs:expr } => {
      yield put($rhs, $lhs)
    }
