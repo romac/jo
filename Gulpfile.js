@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 gulp.task('build:browser', function() {
   gulp.src('./index.js')
     .pipe(browserify({
-      // standalone: 'Chronic.Buffers',
+      // standalone: 'Jo.Buffers',
       debug : !gutil.env.production
     }))
     .pipe(concat('channels.js'))

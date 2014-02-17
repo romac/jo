@@ -5,11 +5,11 @@ A few SweetJS macros are bundled that will make your code more readable and conc
 Here's the example above, rewritten using macros:
 
 ```js
-var chro = require('chronic'),
-    go = chro.go,
-    take = chro.take,
-    put = chro.put,
-    chan = chro.chan;
+var jo = require('jo'),
+    go = jo.go,
+    take = jo.take,
+    put = jo.put,
+    chan = jo.chan;
 
 var c = chan(1);
 
@@ -25,14 +25,14 @@ go {
 c.put(1);
 ```
 
-We still need to import chronic and setup the aliases (for now), but the code is now much more consise, while fully hiding the underlying generators.
+We still need to import Jo and setup the aliases (for now), but the code is now much more consise, while fully hiding the underlying generators.
 
 Here's another example:
 
 ```js
-var chro = require('chronic'),
-    go = chro.go,
-    defer = chro.defer;
+var jo = require('jo'),
+    go = jo.go,
+    defer = jo.defer;
 
 function doStuff(foo, bar, cb) {
   setTimeout(function() {
@@ -48,9 +48,9 @@ go {
 This code will expand to:
 
 ```js
-var chro = require('chronic'),
-    go = chro.go,
-    defer = chro.defer;
+var jo = require('jo'),
+    go = jo.go,
+    defer = jo.defer;
 
 function doStuff(foo, bar, cb) {
   setTimeout(function() {

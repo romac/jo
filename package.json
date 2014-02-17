@@ -1,12 +1,12 @@
 {
-  "name": "chronic",
+  "name": "jo",
   "version": "0.0.1",
   "description": "A port to JavaScript of ClojureScript's core.async",
   "main": "index.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/romac/chronic"
+    "url": "https://github.com/romac/jo"
   },
   "keywords": [],
   "author": "Romain Ruetschi (romain.ruetschi@gmail.com)",
