@@ -7,12 +7,18 @@ let go = macro {
 }
 
 macro <- {
-   rule infix { var $lhs:ident | $rhs:expr } => {
-     var $lhs = yield take($rhs)
-   }
-   rule infix { $lhs:ident | $rhs:expr } => {
-     $lhs = yield take($rhs)
-   }
+  rule infix { $lhs:ident | [ $chans (,) ... ] } => {
+    $lhs = yield select([$chans (,) ...])
+  }
+  rule infix { var $lhs:ident | [ $chans (,) ... ] } => {
+    var $lhs = yield select([$chans (,) ...])
+  }
+  rule infix { $lhs:ident | $rhs:expr } => {
+    $lhs = yield take($rhs)
+  }
+  rule infix { var $lhs:ident | $rhs:expr } => {
+    var $lhs = yield take($rhs)
+  }
 }
 
 macro -> {
