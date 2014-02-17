@@ -27,8 +27,8 @@ let wait = macro {
   }
 }
 
-let defer = macro {
+let await = macro {
   rule { $fn ($args (,) ...) } => {
-    yield defer($fn, $args (,) ...)
+    yield await($fn, $args (,) ...)
   }
 }

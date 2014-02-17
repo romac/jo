@@ -11,7 +11,7 @@ module.exports = {
   take: coro.take,
   put: coro.put,
   wait: coro.wait,
-  defer: coro.defer,
+  await: coro.await,
   select: coro.select,
   timeout: timers.timeout
 };

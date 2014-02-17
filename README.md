@@ -61,7 +61,7 @@ Puts a value on the given channel. If the channel is buffered, this will block u
 #### `yield wait(ms) :: Int -> Unit`
 Block for `ms` milliseconds.
 
-#### `yield defer(fn, ...args) :: Function -> Any... -> [Error, Any]`
+#### `yield await(fn, ...args) :: Function -> Any... -> [Error, Any]`
 Call `fn` with the supplied arguments `args`, and returns an array holding the error (if any) and an array of values passed by `fn` to the internal callback.
 
 #### `timeout(ms) :: Int -> Channel`

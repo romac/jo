@@ -32,7 +32,7 @@ Here's another example:
 ```js
 var jo = require('jo'),
     go = jo.go,
-    defer = jo.defer;
+    await = jo.await;
 
 function doStuff(foo, bar, cb) {
   setTimeout(function() {
@@ -41,7 +41,7 @@ function doStuff(foo, bar, cb) {
 }
 
 go {
-  defer doStuff('toto', 1224);
+  await doStuff('toto', 1224);
 };
 ```
 
@@ -50,7 +50,7 @@ This code will expand to:
 ```js
 var jo = require('jo'),
     go = jo.go,
-    defer = jo.defer;
+    await = jo.await;
 
 function doStuff(foo, bar, cb) {
   setTimeout(function() {
@@ -61,10 +61,10 @@ function doStuff(foo, bar, cb) {
 go(function*() {
   console.log('will do stuff');
   
-  var res = yield defer(doStuff, 'toto', 1224));
+  var res = yield await(doStuff, 'toto', 1224));
   
   console.log('foo is %s, bar is %s', res[1].foo, res[1].bar);
 });
 ```
 
-See how the `defer` macro spliced `doStuff()`'s arguments into `defer()` itself? Neat, right?
+See how the `await` macro spliced `doStuff()`'s arguments into `await()` itself? Neat, right?
