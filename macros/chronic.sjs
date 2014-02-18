@@ -44,3 +44,13 @@ let await = macro {
     yield await($fn, $args (,) ...)
   }
 }
+
+macro gowhile {
+  rule { ( $cond:expr ) { $body ... } } => {
+    go(function* () {
+      while ( $cond ) {
+        $body ...
+      }
+    });
+  }
+}
