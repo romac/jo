@@ -18,6 +18,7 @@
     "gulp-concat": "~2.1.7"
   },
   "dependencies": {
-    "functional-red-black-tree": "0.0.0"
+    "functional-red-black-tree": "0.0.0",
+    "process": "~0.6.0"
   }
 }
