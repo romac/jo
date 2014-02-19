@@ -23,5 +23,6 @@ module.exports = {
   mapcat: comb.mapcat,
   split: comb.split,
   reduce: comb.reduce,
-  toChan: comb.toChan
+  toChan: comb.toChan,
+  into: comb.into
 };
