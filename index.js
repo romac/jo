@@ -19,5 +19,6 @@ module.exports = {
   after: timers.after,
   map: comb.map,
   remove: comb.remove,
-  filter: comb.filter
+  filter: comb.filter,
+  mapcat: comb.mapcat
 };
