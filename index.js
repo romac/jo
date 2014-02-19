@@ -22,5 +22,6 @@ module.exports = {
   filter: comb.filter,
   mapcat: comb.mapcat,
   split: comb.split,
-  partition: comb.partition
+  partition: comb.partition,
+  reduce: comb.reduce
 };
