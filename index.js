@@ -3,7 +3,8 @@
 
 var chan = require('./lib/chan'),
     timers = require('./lib/timers'),
-    coro = require('./lib/coroutines');
+    coro = require('./lib/coroutines'),
+    comb = require('./lib/combinators');
 
 module.exports = {
   chan: chan,
@@ -14,5 +15,8 @@ module.exports = {
   await: coro.await,
   select: coro.select,
   timeout: timers.timeout,
-  after: timers.after
+  after: timers.after,
+  map: comb.map,
+  remove: comb.remove,
+  filter: comb.filter
 };
