@@ -54,3 +54,19 @@ macro gowhile {
     });
   }
 }
+
+macro loop {
+  rule { ( $name:ident ) { $body ... } } => {
+   var $name = true;
+    while ( $name ) {
+      $name = false;
+      $body ...
+    }
+  }
+}
+
+macro recur {
+  rule { ( $name:ident ) } => {
+      $name = true
+    }
+}
