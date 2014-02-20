@@ -2,26 +2,42 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     concat = require('gulp-concat'),
-    browserify = require('gulp-browserify');
+    clean = require('gulp-clean'),
+    browserify = require('gulp-browserify'),
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename'),
+    jshint = require('gulp-jshint');
 
-// FIXME: Pass --standalone to browserify
-gulp.task('build:browser', function() {
-  gulp.src('./index.js')
-    .pipe(browserify({
-      // standalone: 'Jo.Buffers',
-      debug : !gutil.env.production
-    }))
-    .pipe(concat('channels.js'))
-    .pipe(gulp.dest('./build/browser'));
+var jsFiles = ['index.js', 'lib/**/*.js'],
+    js = gulp.src(jsFiles);
+
+gulp.task('default', ['jshint', 'browser']);
+
+gulp.task('jshint', function() {
+  js.pipe(jshint('.jshintrc'))
+    .pipe(jshint.reporter('default'));
 });
 
-// FIXME: Write proper unit tests
-gulp.task('test:browser', function() {
-  gulp.src('./test/browser/index.js')
+gulp.task('watch', function() {
+  gulp.watch(jsFiles, ['jshint']);
+});
+
+// FIXME: Pass --standalone to browserify
+gulp.task('browser', ['jshint'], function() {
+  gulp.src('index.js')
     .pipe(browserify({
-      insertGlobals : true,
+      // standalone: 'Jo.Buffers',
+      transform: ['regeneratorify'],
       debug : !gutil.env.production
     }))
-    .pipe(concat('bundle.js'))
-    .pipe(gulp.dest('./test/browser'));
+    .pipe(concat('jo.js'))
+    .pipe(gulp.dest('./build'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(uglify())
+    .pipe(gulp.dest('./build'))
+});
+
+gulp.task('clean', function() {
+   gulp.src(['build/*'], {read: false})
+    .pipe(clean());
 });
