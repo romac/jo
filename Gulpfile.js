@@ -22,11 +22,11 @@ gulp.task('watch', function() {
   gulp.watch(jsFiles, ['jshint']);
 });
 
-// FIXME: Pass --standalone to browserify
 gulp.task('browser', ['jshint'], function() {
-  gulp.src('index.js')
+  gulp.src('index.js', {read: false})
     .pipe(browserify({
-      // standalone: 'Jo.Buffers',
+      standalone: 'jo',
+      insertGlobals: true,
       transform: ['regeneratorify'],
       debug : !gutil.env.production
     }))
