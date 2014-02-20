@@ -16,7 +16,6 @@ module.exports = {
   select: coro.select,
   collect: coro.collect,
   timeout: timers.timeout,
-  after: timers.after,
   map: comb.map,
   remove: comb.remove,
   filter: comb.filter,
