@@ -4,7 +4,8 @@
 var chan = require('./lib/chan'),
     timers = require('./lib/timers'),
     coro = require('./lib/coroutines'),
-    comb = require('./lib/combinators');
+    comb = require('./lib/combinators'),
+    events = require('./lib/events');
 
 module.exports = {
   chan: chan,
@@ -23,5 +24,7 @@ module.exports = {
   split: comb.split,
   reduce: comb.reduce,
   toChan: comb.toChan,
-  into: comb.into
+  into: comb.into,
+  listen: events.listen,
+  on: events.on
 };
