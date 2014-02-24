@@ -13,7 +13,7 @@ module.exports = {
   put: coro.put,
   wait: coro.wait,
   await: coro.await,
-  select: coro.select,
+  alts: coro.alts,
   collect: coro.collect,
   timeout: timers.timeout,
   map: comb.map,
