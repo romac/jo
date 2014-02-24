@@ -6,32 +6,29 @@
 ### Usage
 
 ```js
-var jo = require('jo'),
-    go = jo.go,
-    take = jo.take,
-    put = jo.put,
-    chan = jo.chan;
+var jo = require('jo')
 
-var c = chan(1);
+var c = jo.chan(1);
 
-go(function*() {
+jo.go(function*() {
   var i = 0;
   while (true) {
-    i = yield take(c);
+    i = yield jo.take(c);
     console.log('ping got "%s".', i);
-    yield put(c, i + 1);
+    yield jo.put(c, i + 1);
   }
 });
 
-go(function*() {
+jo.go(function*() {
   var i = 0;
   while (true) {
-    i = yield take(c);
+    i = yield jo.take(c);
     console.log('pong got "%s".', i);
-    yield put(c, i + 1);
+    yield jo.put(c, i + 1);
   }
 });
 
+// asynchronously put a value into the channel
 c.put(1);
 ```
 
