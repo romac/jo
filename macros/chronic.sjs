@@ -21,6 +21,15 @@ macro -> {
    }
 }
 
+
+let select = macro {
+  rule { { $($lhs:ident <- $rhs:expr : { $body ... }) ... } } => {
+    yield select(
+      $([$rhs, function($lhs) { $body ... }]) (,) ...
+    )
+  }
+}
+
 let wait = macro {
   rule { $ms:expr } => {
     yield wait($ms)
