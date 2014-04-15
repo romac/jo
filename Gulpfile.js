@@ -28,7 +28,7 @@ gulp.task('browser', ['jshint'], function() {
       standalone: 'jo',
       insertGlobals: true,
       transform: ['regeneratorify'],
-      debug : !gutil.env.production
+      debug: !gutil.env.production
     }))
     .pipe(concat('jo.js'))
     .pipe(gulp.dest('./build'))
