@@ -12,18 +12,18 @@
   "author": "Romain Ruetschi (romain.ruetschi@gmail.com)",
   "license": "MIT",
   "devDependencies": {
-    "gulp-util": "~2.2.13",
-    "gulp": "~3.5.0",
-    "gulp-browserify": "~0.4.0",
-    "gulp-concat": "~2.1.7",
-    "gulp-rename": "~1.1.0",
-    "gulp-clean": "~0.2.4",
-    "gulp-uglify": "~0.2.1",
-    "gulp-jshint": "~1.4.2",
-    "regeneratorify": "0.0.2"
+    "gulp-util": "^2.2.14",
+    "gulp": "^3.6.0",
+    "gulp-browserify": "^0.5.0",
+    "gulp-concat": "^2.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-clean": "^0.2.4",
+    "gulp-uglify": "^0.2.1",
+    "gulp-jshint": "^1.5.3",
+    "regeneratorify": "^0.0.2"
   },
   "dependencies": {
-    "functional-red-black-tree": "0.0.0",
-    "process": "~0.6.0"
+    "functional-red-black-tree": "^1.0.0",
+    "process": "^0.6.0"
   }
 }
