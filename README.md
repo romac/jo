@@ -1,5 +1,5 @@
 
-## [Jo](https://romac.me/projects/jo)  [![Build Status](https://travis-ci.org/romac/jo.png?branch=master)](https://travis-ci.org/romac/jo)
+## [Jo](https://romac.me/projects/jo)
 
 > A port to JavaScript of ClojureScript's core.async.
 
