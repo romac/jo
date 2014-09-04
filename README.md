@@ -1,5 +1,5 @@
 
-## [Jo](https://romac.me/projects/jo)
+## Jo
 
 > A port to JavaScript of ClojureScript's core.async channels.
 
