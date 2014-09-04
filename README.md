@@ -1,7 +1,11 @@
 
 ## [Jo](https://romac.me/projects/jo)
 
-> A port to JavaScript of ClojureScript's core.async.
+> A port to JavaScript of ClojureScript's core.async channels.
+
+### Notice
+
+This library is experimental and I do not currently plan to publish it to npm. Please use another implementation of CSP channels, such as [js-csp](https://github.com/ubolonton/js-csp) or [task.js](http://taskjs.org/).
 
 ### Usage
 
@@ -67,6 +71,8 @@ Creates a channel that will close after `ms` milliseconds.
 ### Macros
 A few [sweet.js](http://sweetjs.org/) macros are bundled with jo. You can find a README, and some examples in the `macros/` folder.
 
-### License
+### Copyright and license
 
-Jo is released under the [MIT license](http://romac.mit-license.org/).
+Copyright © 2014 Romain Ruetschi
+
+Licensed under the Eclipse Public License (see the file epl.html).

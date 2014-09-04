@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "Romain Ruetschi (romain.ruetschi@gmail.com)",
-  "license": "MIT",
+  "license": "EPL",
   "devDependencies": {
     "gulp-util": "^2.2.14",
     "gulp": "^3.6.0",
@@ -23,6 +23,7 @@
     "regeneratorify": "^0.0.2"
   },
   "dependencies": {
+    "jo-buffers": "^0.1.0",
     "functional-red-black-tree": "^1.0.0",
     "process": "^0.6.0"
   }
